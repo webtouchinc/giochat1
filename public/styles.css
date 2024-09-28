@@ -1,0 +1,35 @@
+body {
+    background-color: #f8f9fa;
+    color: #343a40;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+.dark-mode {
+    background-color: #343a40;
+    color: #f8f9fa;
+}
+
+#chat-box {
+    background-color: #e9ecef;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.dark-mode #chat-box {
+    background-color: #495057;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
