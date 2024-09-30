@@ -3,6 +3,10 @@ const http = require('http');
 const socketIo = require('socket.io');
 const ChatEngine = require('chat-engine');
 const cors = require('cors');
+const dotenv = require('dotenv');
+
+// Load environment variables from .env file if not set in Render
+dotenv.config();
 
 // Create Express app
 const app = express();
@@ -12,7 +16,7 @@ const io = socketIo(server);
 // Use CORS to allow cross-origin requests
 app.use(cors());
 
-// Environment Variables (replace these with your actual keys if needed)
+// Environment Variables (use Render environment variables if available)
 const PROJECT_ID = process.env.ANONYMCHAT_CHATENGINE_PROJECT_ID || 'bef1944a-9499-4d8f-988f-ad3314037515';
 const PRIVATE_KEY = process.env.ANONYMCHAT_CHATENGINE_PRIVATE_KEY || 'a6b7fe8e-1d85-45e3-9424-8e2f129a9aea';
 
@@ -43,6 +47,11 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log('A user disconnected');
     });
+});
+
+// Route to verify server is running
+app.get('/', (req, res) => {
+    res.send('Chat server is running!');
 });
 
 // Start the server
