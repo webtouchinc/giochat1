@@ -12,6 +12,7 @@
     "isolated-vm": "^4.0.0",
     "nodemon": "^3.0.1",
     "pubnub": "^8.2.7",
+    "socket.io": "^4.8.0",
     "webpack": "^5.88.0"
   },
   "devDependencies": {
